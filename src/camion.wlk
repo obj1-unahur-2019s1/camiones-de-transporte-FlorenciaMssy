@@ -1,16 +1,11 @@
 import cosas.*
 
-object camion {
+class Camion {
 	const property cosas = []
 	
-	method cargar(unaCosa) {
-		cosas.add(unaCosa)
-		}
-		
 	method descargar(unaCosa){
 		cosas.remove(unaCosa)
-		
-		}
+	}
 		
 	method pesoTotal() {
 	return cosas.sum({cosa => cosa.peso()})+1000
@@ -24,11 +19,19 @@ object camion {
 	return cosas.filter({cosa => cosa.nivelPeligrosidad() > nivel})
 	}
 
+	method objetoMaspeligrosoQue(cosa){
+	return self.objetosPeligrosos(cosa.nivelPeligrosidad())                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+	}
+	
 	method puedeCircularEnRuta(nivelMaximoPeligrosidad) {
 	return cosas.all({cosa => cosa.nivelPeligrosidad() < nivelMaximoPeligrosidad})
 	}
 	
-	method objetoMaspeligrosoQue(cosa){
-	return cosas.filter({cosita => cosita.nivelPeligrosidad() > cosa})                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+	method tieneAlgoQuePesaEntre(min, max){
+	return cosas.any({cosa => cosa.peso().between(min,max)})
 	}
+	
+	/*method cosaMasPesada(){
+	return  
+	}/* */
 }

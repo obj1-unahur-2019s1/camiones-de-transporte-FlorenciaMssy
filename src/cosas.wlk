@@ -3,20 +3,20 @@ object knightRider {
 	method nivelPeligrosidad() { return 10 } 
 }
 object paqueteDeLadrillos {
-	method cantidad () {return 20 }
-	method peso() {return self.cantidad()*2}
+	var property cantidad = 0
+	const property precioUnitario = 2
+	method peso() {return self.precioUnitario()*2}
 	method nivelPeligrosidad() {return 2}
 }
 
 object arenaAGranel {
-	method cantidadPeso() {return 20}
-	method peso() {return self.cantidadPeso()}
+	var property peso = 0
 	method nivelPeligrosidad() {return 1}
 	
 }
 
 object bateriaAntiaerea{
-	var tieneMisiles = true
+	var property tieneMisiles = true
 	method peso() {
 		if (tieneMisiles){return 300}
 		else {return 200}
@@ -40,8 +40,8 @@ object contenedorPortuario {
 	}
 	
 object residuosRadioactivos{
-	method cantidadArena() {return 30}
-	method peso(){return self.cantidadArena()}
+	var property cantidad = 0
+	method peso(){return self.cantidad()}
 	method nivelPeligrosidad() {return 200}
 }
 
